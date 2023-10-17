@@ -30,7 +30,7 @@ public class UserService implements IUserService {
     // Create and store User into the repository.
     @Override
     public User create(String name) {
-        User user=new User(name, 0);
+        User user=new User(name, 1500);
         return this.userRepository.save(user);
     }
 

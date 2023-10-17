@@ -1,7 +1,6 @@
 
 package com.crio.codingame.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,8 +26,8 @@ public class Contest extends BaseEntity{
     public Contest(String name, List<Question> questions, Level level, User creator,
             ContestStatus contestStatus) {
         this.name = name;
-        this.questions = new ArrayList<>();
         validateQuestionList(questions, level);
+        this.questions=questions;
         this.level = level;
         this.creator = creator;
         this.contestStatus = contestStatus;
