@@ -11,11 +11,11 @@
 //     }
 
 //     @Override
-//     public Integer storePlayList(Integer playListId, Integer SongId) {
+//     public Integer storePlayList(Integer playListId, Integer currentsongIndex) {
 //         if (currentSongMap.containsKey(playListId)) {
 //             return getCurrentSongOfPlayList(playListId);
 //         } else {
-//             return SongId;
+//             return currentsongIndex;
 //         }
 //     }
 
@@ -25,8 +25,8 @@
 //     }
 
 //     @Override
-//     public Integer updateCurrentSong(Integer PlayListId, Integer songId) {
-//         currentSongMap.put(PlayListId, songId);
+//     public Integer updateCurrentSong(Integer PlayListId, Integer currentsongIndex) {
+//         currentSongMap.put(PlayListId, currentsongIndex);
 //         return currentSongMap.get(PlayListId);
 //     }
 

@@ -33,6 +33,11 @@ public class User extends BaseEntity{
     public void addPlayList(PlayList playList){
         playLists.add(playList.getId());
     }
+    public void addPlayList(List<Integer> playlists){
+        for (Integer playListId : playlists) {
+            playLists.add(playListId);
+        }
+    }
 
     public void deletePlayList(PlayList playList) throws UserDoNottHavePlayListException{
         boolean flag=false;

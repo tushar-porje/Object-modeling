@@ -1,42 +1,38 @@
-// package com.crio.jukebox.services;
+package com.crio.jukebox.services;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+import java.util.ArrayList;
+import java.util.List;
+import com.crio.jukebox.entities.*;
+import com.crio.jukebox.repositories.IUserRepository;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-// import static org.junit.jupiter.api.Assertions.assertEquals;
-// import static org.mockito.Mockito.mock;
-// import static org.mockito.Mockito.when;
-// import java.util.ArrayList;
-// import java.util.Arrays;
-// import java.util.List;
-// import com.crio.jukebox.entities.User;
-// import com.crio.jukebox.repositories.IUserRepository;
-// import org.junit.jupiter.api.Test;
-// import org.junit.jupiter.api.extension.ExtendWith;
-// import org.mockito.InjectMocks;
-// import org.mockito.Mock;
-// import org.mockito.junit.jupiter.MockitoExtension;
+public class UserServiceTest {
 
+    private UserService userService;
+    private IUserRepository userRepository;
 
-// @ExtendWith(MockitoExtension.class)
-// public class UserServiceTest {
-    
-//     private IUserRepository userRepository;
-    
-//     private UserService userService;
+    @BeforeEach
+    public void setup() {
+        userRepository = mock(IUserRepository.class);
+        userService = new UserService(userRepository);
+    }
 
-    
-
-//     @Test
-//     public void testCreateUser() {
-//         List<Integer> playList = new ArrayList<>();
-//         User expectedUser=new User(1, "tushar",playList);
-
-//         // Mock the userRepository's save method to return the testUser
-//         // when(userRepository.save(testUser)).thenReturn(testUser);
-
-//         // Call the createUser method
-//         User createdUser = userService.createUser("tushar");
-
-//         // Assert that the createdUser is equal to the testUser
-//         assertEquals(expectedUser, createdUser);
-//     }
-// }
+    @Test
+    public void testCreateUser() {
+        // Arrange
+        User expectedUser=new User(1,"tushar",new ArrayList<>());
+        // Mock the behavior of userRepository.save
+        // when(userRepository.save(newUser)).thenReturn(expectedUser);
+        
+        // Act
+        User actualUser = userService.createUser("tushar");
+        
+        // Assert
+        assertEquals(expectedUser, actualUser);
+        // Verify that userRepository.save was called with the new user
+        // verify(userRepository, times(1)).save(newUser);
+    }
+}
